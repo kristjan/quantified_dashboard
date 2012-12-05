@@ -1,4 +1,4 @@
-/*globals accessToken:true*/
+/*globals accessToken:true nv:true d3:true stream_layers:true*/
 
 // The URL of the Singly API endpoint
 var API_BASE = 'https://api.singly.com';
@@ -41,10 +41,57 @@ function addServices(services) {
     fillService(service, item);
   });
 }
+function testData() {
+  if(true) return stream_layers(3,64,0.1).map(function(data, i) {
+      return {
+            key: 'Stream' + i,
+            values: data
+          };
+    });
+
+  var values = [];
+  for (var i = 0; i < 128; i++) {
+    values[i] = {
+      x: i,
+      y: Math.random()
+    };
+  }
+  return [
+    {
+      key: 'One',
+      values: values
+    }
+  ];
+}
+
+function drawChart() {
+  nv.addGraph(function() {
+    var chart = nv.models.lineWithFocusChart();
+
+    chart.xAxis
+    .tickFormat(d3.format(',f'));
+
+    chart.yAxis
+      .tickFormat(d3.format(',.2f'));
+
+    chart.y2Axis
+      .tickFormat(d3.format(',.2f'));
+
+    d3.select('#chart svg')
+      .datum(testData())
+      .transition().duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+}
 
 function init() {
   if (!accessToken) return;
   Singly.get('/profiles', null, addServices);
+  drawChart();
 }
 
 $(init);

@@ -9,6 +9,15 @@
   <script src="/lib/underscore-min.js"></script>
   <script src="/lib/crossfilter.v1.min.js"></script>
   <script src="/lib/d3.v2.min.js"></script>
+  <script src="/lib/nvd3/nv.d3.min.js"></script>
+  <script src="/lib/nvd3/tooltip.js"></script>
+  <script src="/lib/nvd3/utils.js"></script>
+  <script src="/lib/nvd3/models/legend.js"></script>
+  <script src="/lib/nvd3/models/axis.js"></script>
+  <script src="/lib/nvd3/models/scatter.js"></script>
+  <script src="/lib/nvd3/models/line.js"></script>
+  <script src="/lib/nvd3/models/lineWithFocusChart.js"></script>
+  <script src="/lib/stream_layers.js"></script>
 
   <script>
     var accessToken = '<%= session.accessToken %>';
@@ -19,6 +28,7 @@
   <style>
    @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700);
    @import url(index.css);
+   @import url(lib/nvd3/nv.d3.css);
   </style>
  </head>
 

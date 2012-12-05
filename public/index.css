@@ -36,6 +36,13 @@ h1, h2 {
   float: left;
 }
 
+.chart svg {
+  display: block;
+  min-height: 100px;
+  min-width: 100px;
+}
+
+
 a, a:visited {
   color: #25aae1;
   text-decoration: none;
