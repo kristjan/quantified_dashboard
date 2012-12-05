@@ -1,4 +1,4 @@
-/*globals accessToken:true nv:true d3:true*/
+/*globals accessToken:true nv:true d3:true Spinner:true*/
 
 // The URL of the Singly API endpoint
 var API_BASE = 'https://api.singly.com';
@@ -41,6 +41,7 @@ function byDay(data) {
 
 function addMetric(evt) {
   evt.preventDefault();
+  spinner.spin($('#chart').get(0));
   var name = $(evt.target).attr('name');
   Singly.get('/services/' + name, {
     since: (TODAY.valueOf() - FOUR_WEEKS) / 1000,
@@ -123,6 +124,12 @@ function drawChart() {
 
     return chart;
   });
+  spinner.stop();
+}
+
+var spinner;
+function initSpinner() {
+  spinner = new Spinner();
 }
 
 function init() {
@@ -131,6 +138,7 @@ function init() {
 
   $.ajaxSetup({timeout: 0});
   Singly.get('/profiles', null, addServices);
+  initSpinner();
   drawChart();
 }
 
