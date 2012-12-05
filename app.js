@@ -63,8 +63,11 @@ app.configure('development', function() {
 
 app.get('/', function(req, res) {
   // Render out views/index.ejs, passing in the session
-  res.render('index', {
-    session: req.session
+  request.get('https://api.singly.com/services', {json: true}, function(err, resp, services) {
+    res.render('index', {
+      session: req.session,
+      services: Object.keys(services).sort()
+    });
   });
 });
 

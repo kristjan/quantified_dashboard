@@ -44,7 +44,6 @@ function addServices(services) {
 
 function init() {
   if (!accessToken) return;
-  console.log("Token: " + accessToken);
   Singly.get('/profiles', null, addServices);
 }
 

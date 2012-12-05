@@ -6,9 +6,9 @@
 
   <h2>Connect services</h2>
   <ul class="auth">
-    <li><%- authorizationLink('twitter', 'Twitter') %></li>
-    <li><%- authorizationLink('github',  'GitHub') %></li>
-    <li><%- authorizationLink('fitbit',  'FitBit') %></li>
+    <% for (var i = 0; i < services.length; i++) { %>
+      <li><%- authorizationLink(services[i],  services[i]) %></li>
+    <% } %>
   </ul>
 </div>
 
