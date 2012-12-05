@@ -6,7 +6,7 @@ body {
 
 .charts {
   position: relative;
-  width: 80%;
+  width: 1000px;
   float: left;
 }
 
@@ -163,16 +163,39 @@ a:hover {
   text-decoration: underline;
 }
 
+ul {
+  margin: 5px 0 5px 5px;
+  padding: 0;
+}
+
 li {
   list-style-type: none;
 }
 
 .sidebar {
-  width: 15%;
+  width: 200px;
   float: left;
+}
+
+.menu h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.menu .service {
+  width: 80%;
+}
+
+.menu .service .count {
+  color: #666;
+  float: right;
 }
 
 .check {
   color: #25aae1;
 }
 
+.empowered {
+  clear: both;
+  padding-top: 50px;
+}
