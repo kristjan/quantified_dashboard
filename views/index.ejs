@@ -1,32 +1,52 @@
-<p>Register with one or more of these services:</p>
-
 <ul id="auth">
- <li><%- authorizationLink('dropbox', 'Dropbox') %></li>
- <li><%- authorizationLink('facebook', 'Facebook') %></li>
- <li><%- authorizationLink('fitbit', 'FitBit') %></li>
- <li><%- authorizationLink('foursquare', 'foursquare') %></li>
- <li><%- authorizationLink('github', 'GitHub') %></li>
- <li><%- authorizationLink('gmail', 'Gmail') %></li>
- <li><%- authorizationLink('google', 'Google') %></li>
- <li><%- authorizationLink('gcontacts', 'Google Contacts') %></li>
- <li><%- authorizationLink('instagram', 'Instagram') %></li>
- <li><%- authorizationLink('linkedin', 'LinkedIn') %></li>
- <li><%- authorizationLink('runkeeper', 'RunKeeper') %></li>
- <li><%- authorizationLink('tumblr', 'Tumblr') %></li>
- <li><%- authorizationLink('twitter', 'Twitter') %></li>
- <li><%- authorizationLink('wordpress', 'WordPress') %></li>
+  <li><%- authorizationLink('twitter', 'Twitter') %></li>
 </ul>
 
-<div id="empowered">
- <a href="https://singly.com/"><img src="/empowered.png" /></a>
+<div id="body">
+  <!--
+  <a href="javascript:filter([null, [100, 150], null, null])">arrival delay</a>?
+  <a href="javascript:filter([null, null, [1700, 2000], null])">longer</a>
+  <a href="javascript:filter([null, null, [0, 300], null])">shorter</a>
+  <a href="javascript:filter([null, [80, 150], null, [new Date(2001, 0, 12), new Date(2001, 0, 13)]])">January 12</a>
+  <a href="javascript:filter([null, null, null, [new Date(2001, 0, 27), new Date(2001, 0, 29)]])">weekends</a>
+  <a href="javascript:filter([null, null, null, [new Date(2001, 0, 29), new Date(2001, 1, 3)]])">weekdays</a>
+  <a href="javascript:filter([[4, 7], null, null, null])">mornings</a>
+  <a href="javascript:filter([[21, 24], null, null, null])">nights</a>
+  -->
+
+  <div id="charts">
+    <div id="pillow-chart" class="chart">
+      <div class="title">Head-to-pillow time</div>
+    </div>
+
+    <div id="wake-chart" class="chart">
+      <div class="title">Wake-up time</div>
+    </div>
+
+    <div id="hours-chart" class="chart">
+      <div class="title">Hours of sleep</div>
+    </div>
+
+    <div id="awakenings-chart" class="chart">
+      <div class="title">Awakenings</div>
+    </div>
+
+    <div id="weekday-chart" class="chart">
+      <div class="title">Day of week</div>
+    </div>
+
+    <div id="zq-chart" class="chart">
+      <div class="title">ZQ score</div>
+    </div>
+
+    <div id="date-chart" class="chart">
+      <div class="title">Date</div>
+    </div>
+  </div>
+
+  <aside id="totals"><span id="active">-</span> of <span id="total">-</span> nights selected.</aside>
+
+  <div id="lists">
+    <div id="night-list" class="list"></div>
+  </div>
 </div>
-
-<div id="access-token-wrapper">
- <p>Here's your access token for making API calls directly: <input type="text" id="access-token" /></p>
-</div>
-
-<div id="profiles"></div>
-
-<hr>
-
-<div id="statuses"></div>
