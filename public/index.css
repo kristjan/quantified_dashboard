@@ -1,153 +1,178 @@
 body {
-   font-family: "Helvetica Neue";
-   margin: 10px;
-   min-height: 2000px;
+  font-family: "Helvetica Neue";
+  margin: 10px;
+  min-height: 2000px;
 }
 
-#body {
-   position: relative;
+.charts {
+  position: relative;
+  width: 80%;
+  float: left;
 }
 
 footer {
-   padding: 2em 0 1em 0;
-   font-size: 12px;
+  padding: 2em 0 1em 0;
+  font-size: 12px;
 }
 
 h1 {
-   font-size: 96px;
-   margin-top: .3em;
-   margin-bottom: 0;
+  font-size: 96px;
+  margin-top: .3em;
+  margin-bottom: 0;
 }
 
 h1 + h2 {
-   margin-top: 0;
+  margin-top: 0;
 }
 
 h2 {
-   font-weight: 400;
-   font-size: 28px;
+  font-weight: 400;
+  font-size: 28px;
 }
 
 h1, h2 {
-   font-family: "Yanone Kaffeesatz";
-   text-rendering: optimizeLegibility;
+  font-family: "Yanone Kaffeesatz";
+  text-rendering: optimizeLegibility;
 }
 
 #body > p {
-   line-height: 1.5em;
-   width: 640px;
-   text-rendering: optimizeLegibility;
+  line-height: 1.5em;
+  width: 640px;
+  text-rendering: optimizeLegibility;
 }
 
 #charts {
-   padding: 10px 0;
+  padding: 10px 0;
 }
 
 .chart {
-   display: inline-block;
-   height: 151px;
-   margin-bottom: 20px;
+  display: inline-block;
+  height: 151px;
+  margin-bottom: 20px;
 }
 
 .reset {
-   padding-left: 1em;
-   font-size: smaller;
-   color: #ccc;
+  padding-left: 1em;
+  font-size: smaller;
+  color: #ccc;
 }
 
 .background.bar {
-   fill: #ccc;
+  fill: #ccc;
 }
 
 .foreground.bar {
-   fill: steelblue;
+  fill: steelblue;
 }
 
 .axis path, .axis line {
-   fill: none;
-   stroke: #000;
-   shape-rendering: crispEdges;
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
 }
 
 .axis text {
-   font: 10px sans-serif;
+  font: 10px sans-serif;
 }
 
 .brush rect.extent {
-   fill: steelblue;
-   fill-opacity: .125;
+  fill: steelblue;
+  fill-opacity: .125;
 }
 
 .brush .resize path {
-   fill: #eee;
-   stroke: #666;
+  fill: #eee;
+  stroke: #666;
 }
 
 #pillow-chart {
-   width: 260px;
+  width: 260px;
 }
 
 #wake-chart {
-   width: 260px;
+  width: 260px;
 }
 
 #hours-chart {
-   width: 140px;
+  width: 140px;
 }
 
 #awakenings-chart {
-   width: 160px;
+  width: 160px;
 }
 
 #weekday-chart {
-   width: 140px;
+  width: 140px;
 }
 
 #zq-chart {
-   width: 200px;
+  width: 200px;
 }
 
 #date-chart {
-   width: 920px;
+  width: 920px;
 }
 
 #night-list {
-   min-height: 1024px;
+  min-height: 1024px;
 }
 
 #night-list .night {
-   margin-bottom: .4em;
-   line-height: 1.5em;
-   background: #eee;
-   width: 640px;
-   margin-bottom: 1px;
+  margin-bottom: .4em;
+  line-height: 1.5em;
+  background: #eee;
+  width: 640px;
+  margin-bottom: 1px;
 }
 
 #night-list .night div {
-   display: inline-block;
-   width: 128px;
+  display: inline-block;
+  width: 128px;
 }
 
 #night-list .wake,
 #night-list .pillow {
-   color: #999;
+  color: #999;
 }
 
 #night-list div.wake,
 #night-list div.hours,
 #night-list div.pillow {
-   width: 160px;
-   padding-right: 10px;
-   text-align: right;
+  width: 160px;
+  padding-right: 10px;
+  text-align: right;
 }
 
 #night-list .good {
-   color: green;
+  color: green;
 }
 
 aside {
-   position: absolute;
-   left: 740px;
-   font-size: smaller;
-   width: 220px;
+  position: absolute;
+  left: 740px;
+  font-size: smaller;
+  width: 220px;
 }
+
+a, a:visited {
+  color: #25aae1;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: none;
+}
+
+.sidebar {
+  width: 15%;
+  float: left;
+}
+
+.check {
+  color: #25aae1;
+}
+

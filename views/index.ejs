@@ -1,8 +1,18 @@
-<ul id="auth">
-  <li><%- authorizationLink('twitter', 'Twitter') %></li>
-</ul>
+<div class="sidebar">
+  <h2>Select data:</h2>
+  <ul class="menu">
+    <li>No services connected</li>
+  </ul>
 
-<div id="body">
+  <h2>Connect services</h2>
+  <ul class="auth">
+    <li><%- authorizationLink('twitter', 'Twitter') %></li>
+    <li><%- authorizationLink('github',  'GitHub') %></li>
+    <li><%- authorizationLink('fitbit',  'FitBit') %></li>
+  </ul>
+</div>
+
+<div class="charts">
   <!--
   <a href="javascript:filter([null, [100, 150], null, null])">arrival delay</a>?
   <a href="javascript:filter([null, null, [1700, 2000], null])">longer</a>
@@ -49,4 +59,10 @@
   <div id="lists">
     <div id="night-list" class="list"></div>
   </div>
+</div>
+
+<div class="empowered">
+  Empowered by <a href="https://singly.com">
+    <img src="https://singly.com/images/singly-logo_100.png" />
+  </a>
 </div>
