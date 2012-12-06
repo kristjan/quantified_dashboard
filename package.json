@@ -3,7 +3,7 @@
    "version": "0.0.4",
    "dependencies": {
       "ejs": "*",
-      "express": "3.0.0rc4",
+      "express": "3.0.3",
       "querystring": "*",
       "request": "2.9.203",
       "sprintf": "*",
