@@ -22,7 +22,7 @@ var FOUR_WEEKS = 28 * ONE_DAY;
 var DETAILS = {
   fitbit: {
     activities: ['activityCalories', 'distance', 'steps'],
-    sleep: ['minutesAsleep']
+    sleep: ['awakenings', 'minutesAsleep']
   },
   zeo: {
     sleep_records: ['awakenings']
@@ -49,6 +49,14 @@ function sum(path) {
   };
 }
 
+function fitbitAwakenings(data) {
+  var awakenings = 0;
+  data.forEach(function(datum) {
+    awakenings += sum('awakeningsCount')(datum.data.sleep);
+  });
+  return awakenings;
+}
+
 function fitbitDistance(data) {
   var distance = 0;
   data.forEach(function(datum) {
@@ -64,6 +72,7 @@ var VALUE_FNS = {
   'fitbit/activities/activityCalories': sum('data.summary.activityCalories'),
   'fitbit/activities/steps': sum('data.summary.steps'),
   'fitbit/activities/distance': fitbitDistance,
+  'fitbit/sleep/awakenings': fitbitAwakenings,
   'fitbit/sleep/minutesAsleep': sum('data.summary.totalMinutesAsleep'),
   'zeo/sleep_records/awakenings': sum('data.awakenings')
 };
