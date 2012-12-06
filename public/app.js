@@ -25,14 +25,28 @@ var DETAILS = {
   }
 };
 
-var VALUE_FNS = {
-  'fitbit/activities/steps': function(data) {
-    var steps = 0;
+function sum(path) {
+  return function(data) {
+    var parts = path.split('.');
+    var total = 0;
+
     data.forEach(function(datum) {
-      steps += datum.data.summary.steps;
+      try {
+        for (var i = 0; i < parts.length; i++) {
+          datum = datum[parts[i]];
+        }
+        total += datum;
+      } catch(err) {
+        // Oh well
+      }
     });
-    return steps;
-  }
+
+    return total;
+  };
+}
+
+var VALUE_FNS = {
+  'fitbit/activities/steps': sum('data.summary.steps')
 };
 
 function inRange(date, next) {
