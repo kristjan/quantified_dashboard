@@ -21,7 +21,8 @@ var FOUR_WEEKS = 28 * ONE_DAY;
 
 var DETAILS = {
   fitbit: {
-    activities: ['activityCalories', 'distance', 'steps']
+    activities: ['activityCalories', 'distance', 'steps'],
+    sleep: ['minutesAsleep']
   }
 };
 
@@ -59,7 +60,8 @@ function fitbitDistance(data) {
 var VALUE_FNS = {
   'fitbit/activities/activityCalories': sum('data.summary.activityCalories'),
   'fitbit/activities/steps': sum('data.summary.steps'),
-  'fitbit/activities/distance': fitbitDistance
+  'fitbit/activities/distance': fitbitDistance,
+  'fitbit/sleep/minutesAsleep': sum('data.summary.totalMinutesAsleep')
 };
 
 function inRange(date, next) {
