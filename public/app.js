@@ -21,7 +21,7 @@ var FOUR_WEEKS = 28 * ONE_DAY;
 
 var DETAILS = {
   fitbit: {
-    activities: ['steps']
+    activities: ['activityCalories', 'steps']
   }
 };
 
@@ -46,7 +46,8 @@ function sum(path) {
 }
 
 var VALUE_FNS = {
-  'fitbit/activities/steps': sum('data.summary.steps')
+  'fitbit/activities/steps': sum('data.summary.steps'),
+  'fitbit/activities/activityCalories': sum('data.summary.activityCalories')
 };
 
 function inRange(date, next) {
