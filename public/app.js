@@ -21,7 +21,7 @@ var FOUR_WEEKS = 28 * ONE_DAY;
 
 var DETAILS = {
   fitbit: {
-    activities: ['activityCalories', 'steps']
+    activities: ['activityCalories', 'distance', 'steps']
   }
 };
 
@@ -45,9 +45,21 @@ function sum(path) {
   };
 }
 
+function fitbitDistance(data) {
+  var distance = 0;
+  data.forEach(function(datum) {
+    var total = _.find(datum.data.summary.distances, function(entry) {
+      return entry.activity === 'total';
+    });
+    if (total) distance += total.distance;
+  });
+  return distance;
+}
+
 var VALUE_FNS = {
+  'fitbit/activities/activityCalories': sum('data.summary.activityCalories'),
   'fitbit/activities/steps': sum('data.summary.steps'),
-  'fitbit/activities/activityCalories': sum('data.summary.activityCalories')
+  'fitbit/activities/distance': fitbitDistance
 };
 
 function inRange(date, next) {
