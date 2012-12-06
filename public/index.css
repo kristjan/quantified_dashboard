@@ -53,7 +53,7 @@ a:hover {
 }
 
 ul {
-  margin: 5px 0 5px 5px;
+  margin: 5px 0 5px 10px;
   padding: 0;
 }
 
@@ -78,6 +78,10 @@ li {
 .menu .service .count {
   color: #666;
   float: right;
+}
+
+.menu .service li ul {
+  margin-top: 0;
 }
 
 .check {

@@ -19,35 +19,60 @@ TODAY.setHours(0, 0, 0, 0);
 var ONE_DAY = 24 * 60 * 60 * 1000;
 var FOUR_WEEKS = 28 * ONE_DAY;
 
+var DETAILS = {
+  fitbit: {
+    activities: ['steps']
+  }
+};
+
+var VALUE_FNS = {
+  'fitbit/activities/steps': function(data) {
+    var steps = 0;
+    data.forEach(function(datum) {
+      steps += datum.data.summary.steps;
+    });
+    return steps;
+  }
+};
+
 function inRange(date, next) {
   return function(datum) {
     return datum.at >= date && datum.at < next;
   };
 }
 
-function byDay(data) {
-  var counts = [];
+function count(data) {
+  return data.length;
+}
+
+function valueFor(name, data) {
+  return (VALUE_FNS[name] || count)(data);
+}
+
+function byDay(name, data) {
+  var values = [];
   for (var i = 28; i >= 0; i--) {
     var date = TODAY.valueOf() - i * ONE_DAY;
     var next = date + ONE_DAY;
-    var count = _.filter(data, inRange(date, next)).length;
-    counts.push({
+    var value = valueFor(name, _.filter(data, inRange(date, next)));
+    values.push({
       x: date,
-      y: count
+      y: value
     });
   }
-  return counts;
+  return values;
 }
 
 function addMetric(evt) {
   evt.preventDefault();
   spinner.spin($('#chart').get(0));
   var name = $(evt.target).attr('name');
-  Singly.get('/services/' + name, {
+  var base = name.split('/').slice(0, 2).join('/');
+  Singly.get('/services/' + base, {
     since: (TODAY.valueOf() - FOUR_WEEKS) / 1000,
     limit: 1000
   }, function(data) {
-    chartData[name] = byDay(data);
+    chartData[name] = byDay(name, data);
     drawChart();
   });
 }
@@ -62,6 +87,20 @@ function fillService(service, menu) {
         $('<a>', {href: '#', name: [service, type].join('/')}).text(type),
         $('<span>', {'class': 'count'}).text(data[type])
       );
+      if (DETAILS[service] && DETAILS[service][type]) {
+        var details = $('<ul>');
+        DETAILS[service][type].sort().forEach(function(metric) {
+          details.append(
+            $('<li>').append(
+              $('<a>', {
+                href: '#',
+                name: [service, type, metric].join('/')
+              }).text(metric)
+            )
+          );
+        });
+        item.append(details);
+      }
       list.append(item);
     });
   });
