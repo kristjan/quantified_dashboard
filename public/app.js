@@ -23,6 +23,9 @@ var DETAILS = {
   fitbit: {
     activities: ['activityCalories', 'distance', 'steps'],
     sleep: ['minutesAsleep']
+  },
+  zeo: {
+    sleep_records: ['awakenings']
   }
 };
 
@@ -61,7 +64,8 @@ var VALUE_FNS = {
   'fitbit/activities/activityCalories': sum('data.summary.activityCalories'),
   'fitbit/activities/steps': sum('data.summary.steps'),
   'fitbit/activities/distance': fitbitDistance,
-  'fitbit/sleep/minutesAsleep': sum('data.summary.totalMinutesAsleep')
+  'fitbit/sleep/minutesAsleep': sum('data.summary.totalMinutesAsleep'),
+  'zeo/sleep_records/awakenings': sum('data.awakenings')
 };
 
 function inRange(date, next) {
