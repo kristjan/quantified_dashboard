@@ -11,3 +11,5 @@ This is a simple dashboard that pulls time-series data from Singly.
     - If you have Foreman installed, `foreman start` will do it
     - Otherwise, you'll need to load your `.env` into your environment and run
       `node app.js`
+    - If all else fails, run
+      `SINGLY_CLIENT_ID=<your id> SINGLY_CLIENT_SECRET=<your secret> node app.js`
